@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>List of Clients</h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>CPF</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Made in</th>
+        </tr>
+    {% for name in object_list %}
+        <tr>
+            <td>{{ name.name }}</td>
+            <td>{{ name.cpf }}</td>
+            <td>{{ name.age }}</td>
+            <td>{{ name.email }}</td>
+            <td>{{ name.phone }}</td>
+            <td>{{ name.made_in|date:"d/m/Y" }}</td>
+
+        </tr>
+    {% empty %}
+        <li>Without items on the list</li>
+    {% endfor %}
+    </table>
+{% endblock content %}
